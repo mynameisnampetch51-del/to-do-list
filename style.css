@@ -1,0 +1,142 @@
+/* =====================================================================
+   Tokens — shared "Dice" palette (white surface, bold red accent) with
+   cube-net (/cube-net/index.html) so the portfolio reads as one system.
+   ===================================================================== */
+:root {
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-2: #FFF3F3;
+  --ink: #201415;
+  --ink-muted: #8C6F70;
+  --line: #F3D9D9;
+  --line-strong: #E7B9B9;
+
+  --accent: #D81E23;
+  --accent-strong: #A9151A;
+  --accent-soft: #FBD9D9;
+
+  --shadow: 0 1px 2px rgba(27,39,51,.06), 0 10px 26px -14px rgba(27,39,51,.24);
+
+  --font-display: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #150C0C; --surface: #1F1414; --surface-2: #261818;
+    --ink: #F5E9E9; --ink-muted: #B08C8C; --line: #3A2424; --line-strong: #4A2E2E;
+    --accent: #FF4B4F; --accent-strong: #FF7276; --accent-soft: #3D1A1A;
+    --shadow: 0 1px 2px rgba(0,0,0,.45), 0 14px 32px -16px rgba(0,0,0,.65);
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  padding: 40px 20px 80px;
+}
+
+.wrap { max-width: 480px; margin: 0 auto; }
+
+header h1 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  margin: 0 0 4px;
+}
+header p {
+  margin: 0 0 24px;
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#TaskInput {
+  flex: 1;
+  font: inherit;
+  font-size: 15px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--ink);
+}
+#TaskInput:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 1px;
+}
+
+button { font: inherit; cursor: pointer; }
+
+#AddTaskButton {
+  padding: 10px 18px;
+  border: 1px solid var(--accent-strong);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+#AddTaskButton:hover { background: var(--accent-strong); }
+
+#List {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  cursor: pointer;
+}
+
+.task-text { word-break: break-word; }
+.task-item.done .task-text {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.delete-btn {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  font-size: 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink-muted);
+}
+.delete-btn:hover {
+  border-color: var(--accent-strong);
+  color: var(--accent-strong);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 14px;
+  padding: 20px 0;
+}
