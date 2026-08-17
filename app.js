@@ -30,7 +30,7 @@ function render() {
 
     if (items.length === 0) {
         const empty = document.createElement('li');
-        empty.className = 'empty-state';
+        empty.className = 'text-center text-sm text-ink-muted py-5';
         empty.textContent = 'ยังไม่มีงาน — เพิ่มรายการแรกได้เลย';
         list.appendChild(empty);
         return;
@@ -38,15 +38,15 @@ function render() {
 
     items.forEach(function (item, index) {
         const li = document.createElement('li');
-        li.className = 'task-item' + (item.done ? ' done' : '');
+        li.className = 'flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg border border-line bg-surface-2 cursor-pointer';
 
         const span = document.createElement('span');
-        span.className = 'task-text';
+        span.className = 'break-words' + (item.done ? ' line-through opacity-50' : '');
         span.textContent = item.text;
         li.appendChild(span);
 
         const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'delete-btn';
+        deleteBtn.className = 'flex-shrink-0 px-2.5 py-1 text-xs rounded-md border border-line-strong text-ink-muted bg-bg hover:border-accent-strong hover:text-accent-strong';
         deleteBtn.type = 'button';
         deleteBtn.textContent = 'ลบ';
         li.appendChild(deleteBtn);

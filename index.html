@@ -4,21 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-Do App</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* โทนสีเดียวกับ cube-net (../cube-net/index.html) — ขาว/แดง */
+    :root {
+      --bg: #FFFFFF; --surface: #FFFFFF; --surface-2: #FFF3F3;
+      --ink: #201415; --ink-muted: #8C6F70;
+      --line: #F3D9D9; --line-strong: #E7B9B9;
+      --accent: #D81E23; --accent-strong: #A9151A;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #150C0C; --surface: #1F1414; --surface-2: #261818;
+        --ink: #F5E9E9; --ink-muted: #B08C8C;
+        --line: #3A2424; --line-strong: #4A2E2E;
+        --accent: #FF4B4F; --accent-strong: #FF7276;
+      }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: 'var(--bg)',
+            surface: 'var(--surface)',
+            'surface-2': 'var(--surface-2)',
+            ink: 'var(--ink)',
+            'ink-muted': 'var(--ink-muted)',
+            line: 'var(--line)',
+            'line-strong': 'var(--line-strong)',
+            accent: 'var(--accent)',
+            'accent-strong': 'var(--accent-strong)',
+          },
+          fontFamily: {
+            display: ['Georgia', '"Iowan Old Style"', '"Times New Roman"', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>To-Do App</h1>
-      <p>เพิ่ม ติ๊กเสร็จ ลบ — บันทึกอัตโนมัติในเบราว์เซอร์ ไม่หายตอนรีเฟรช</p>
+<body class="bg-bg text-ink antialiased min-h-screen">
+  <div class="max-w-md mx-auto px-5 py-10">
+    <header class="mb-6">
+      <h1 class="font-display text-2xl font-semibold mb-1">To-Do App</h1>
+      <p class="text-sm text-ink-muted">เพิ่ม ติ๊กเสร็จ ลบ — บันทึกอัตโนมัติในเบราว์เซอร์ ไม่หายตอนรีเฟรช</p>
     </header>
 
-    <div class="card">
-      <div class="input-row">
-        <input type="text" id="TaskInput" placeholder="เพิ่มงานใหม่...">
-        <button id="AddTaskButton" type="button">เพิ่ม</button>
+    <div class="bg-surface border border-line rounded-2xl shadow-sm p-5">
+      <div class="flex gap-2 mb-4">
+        <input
+          id="TaskInput"
+          type="text"
+          placeholder="เพิ่มงานใหม่..."
+          class="flex-1 text-[15px] px-3 py-2 rounded-lg border border-line-strong bg-bg text-ink focus:outline-none focus:ring-2 focus:ring-accent-strong"
+        >
+        <button
+          id="AddTaskButton"
+          type="button"
+          class="px-4 py-2 rounded-lg bg-accent hover:bg-accent-strong text-white font-semibold"
+        >เพิ่ม</button>
       </div>
-      <ul id="List"></ul>
+      <ul id="List" class="flex flex-col gap-2"></ul>
     </div>
   </div>
 

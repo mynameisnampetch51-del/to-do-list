@@ -17,6 +17,7 @@
 - Array ของ object เป็น source of truth (`items`), `render()` วาด DOM ใหม่ทุกครั้งที่ array เปลี่ยน
 - `filter()` สำหรับลบ, `map()` + spread (`{...item, done: !item.done}`) สำหรับติ๊กเสร็จ
 - `localStorage.setItem` / `getItem` + `JSON.stringify` / `JSON.parse` สำหรับบันทึกข้อมูล
+- Styling ด้วย **Tailwind CDN** — สีอ้างอิง CSS custom properties (`--accent`, `--surface`, ...) ชุดเดียวกับ `cube-net/` ทำให้รองรับ dark mode อัตโนมัติผ่าน `prefers-color-scheme`
 
 ## รันเอง
 
