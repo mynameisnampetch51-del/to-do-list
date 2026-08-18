@@ -2,7 +2,7 @@
 
 โปรเจกต์แรกในพอร์ต — To-Do App แบบ CRUD เขียนด้วย vanilla JavaScript ล้วน ไม่มี framework
 
-**Demo:** https://mynameisnampetch51-del.github.io/to-do/
+**Demo:** https://mynameisnampetch51-del.github.io/to-do-list/
 
 ## ทำอะไรได้บ้าง
 
