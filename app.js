@@ -6,10 +6,7 @@ const list = document.querySelector("#List")
 const input = document.querySelector("#TaskInput")
 const button = document.querySelector("#AddTaskButton")
 
-// อ่านข้อมูลจาก localStorage ตอนเปิดหน้า
-// - localStorage เก็บได้แค่ string เลยต้อง parse กลับเป็น array/object ด้วย JSON.parse
-// - ถ้ายังไม่เคยเก็บอะไรเลย (ผู้ใช้ใหม่) getItem จะได้ null -> คืน [] แทน
-// - task เก่าที่สร้างก่อนมี mark-as-done จะไม่มี field `done` -> normalize ให้มีเสมอ (?? false)
+
 function load() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
@@ -19,8 +16,7 @@ function load() {
     });
 }
 
-// บันทึกสถานะปัจจุบันของ items กลับลง localStorage
-// - JSON.stringify แปลง array ของ object ให้เป็น string ก่อนเก็บ (บังคับของ localStorage)
+
 function save() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
 }
